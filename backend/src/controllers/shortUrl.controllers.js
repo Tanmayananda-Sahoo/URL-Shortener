@@ -49,6 +49,7 @@ const generateShortUrl = async(req,res) => {
 
 const redirectToOriginalUrl = async(req,res) => {
     const {uniqueId} = req.params;
+    console.log("Unique ID: ",uniqueId);
     if(!uniqueId) {
         return res.status(400)
         .json({
@@ -64,7 +65,7 @@ const redirectToOriginalUrl = async(req,res) => {
         })
     }
 
-    res.redirect(`${shortUrl.originalUrl}`)
+    res.redirect(301, `${(shortUrl.originalUrl.startsWith('http') ? '' : 'https://')+ shortUrl.originalUrl}`);
 }
 
 const fetchUrls = async(req,res) => {

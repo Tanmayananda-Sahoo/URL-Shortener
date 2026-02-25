@@ -4,7 +4,7 @@ import Navbar from '../parts/Navbar.jsx'
 
 const HomePage = () => {
   return (
-    <div className='bg-stone-200 h-screen w-screen'>
+    <div className='bg-stone-200 h-screen overflow-y-auto w-screen'>
         <Navbar />
         <div className='w-full h-[calc(100vh-10vh)] flex justify-center items-center'>
             <URLFormInput />
