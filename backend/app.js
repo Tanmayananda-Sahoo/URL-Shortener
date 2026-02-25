@@ -8,7 +8,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors(
     {
-        origin: 'https://url-shortener-three-blush.vercel.app',
+        origin: 'https://url-shortener-three-blush.vercel.app/',
         credentials: true
     }
 ));
