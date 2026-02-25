@@ -34,7 +34,12 @@ const register = async(req,res) => {
     const token = await createdUser.generateToken();
 
     return res.status(201)
-    .cookie('token', token)
+    .cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 24 * 60 * 60 * 1000
+    })
     .json({
         message: 'User created successfully.',
         user: createdUser,
@@ -79,7 +84,12 @@ const login = async(req,res) => {
     const token = await existingUser.generateToken();
 
     return res.status(200)
-    .cookie('token', token)
+    .cookie('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 24 * 60 * 60 * 1000
+    })
     .json({
         message: "User logged in successfully.",
         user: existingUser,
