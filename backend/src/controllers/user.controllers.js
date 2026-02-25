@@ -99,7 +99,12 @@ const login = async(req,res) => {
 
 const logout = async(req,res) => {
     return res.status(200)
-    .clearCookie('token')
+    .clearCookie('token', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+        maxAge: 24 * 60 * 60 * 1000
+    })
     .json({
         message: 'User logged out successfully.'
     })
