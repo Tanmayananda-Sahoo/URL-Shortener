@@ -8,7 +8,7 @@ const app = express();
 app.use(cookieParser());
 app.use(cors(
     {
-        origin: 'https://url-shortener-backend-yvyu.onrender.com',
+        origin: 'https://url-shortener-three-blush.vercel.app',
         credentials: true
     }
 ));
